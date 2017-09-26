@@ -1,6 +1,6 @@
 ### npm install --save yu-rate
 
-### import popup from 'yu-rate'
+### import rate from 'yu-rate'
 
 
 
