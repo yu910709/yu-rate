@@ -1,24 +1,20 @@
-### npm install --save-dev yu-popup
+### npm install --save yu-rate
 
-### import popup from 'yu-popup'
+### import popup from 'yu-rate'
 
 
 
-  @param {object} option - one entry param to function popJs
+ * @param {object} option
 
-  @param {string} [option.type] - accept 'success' 'error' 'loading' ''
+ * @param {string} [option.type] show 显示用 rate 评分用
 
-  @param {string} [option.title]
+ * @param {string} [option.all] 分数总数 默认5
 
-  @param {(string|string[])} [option.desc]
+ * @param {number} [option.num] 分数 显示的时候的分数 评分的时候的默认分数 默认5
 
-  @param {number} [option.width = 80] - max width 100%  min width 80px
+ * @param {object} [option.target] 目标DOM
 
-  @param {number} [option.timing = 3000] - autoclose when pop has timing
+ * @param {string} [option.color] 自定义color
 
-  @param {function} [option.mounted] - before pop's dom into html
-
-  @callback callback
-
-  @param {function} [option.callback] - after pop's dom removed
+ * @param {function} [option.callback] 回调函数
 

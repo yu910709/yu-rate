@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=devcelop PLATFORM=web webpack-dev-server",
     "build": "cross-env NODE_ENV=production PLATFORM=web webpack",
-    "lib": "babel src --presets babel-preset-es2015 --out-dir lib"
+    "lib": "cross-env NODE_ENV=devcelop PLATFORM=web webpack --config webpack.publish.js"
   },
   "keywords": [
     "rate"
