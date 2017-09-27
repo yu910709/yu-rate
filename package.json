@@ -1,6 +1,6 @@
 {
   "name": "yu-rate",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "a simple rate plugin",
   "main": "index.js",
   "scripts": {

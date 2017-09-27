@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url("http://at.alicdn.com/t/font_429499_vmpa9kfph060f6r.css");
 
 .yu-rate{
   margin: 0;
@@ -8,8 +9,12 @@
     display: inline-block;
     list-style: none;
     color: inherit;
+    font-size: 20px;
     &+li{
       margin-left: 3px;
+    }
+    .iconfont{
+      font-size: inherit;
     }
   }
 }

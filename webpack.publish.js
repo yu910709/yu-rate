@@ -8,7 +8,7 @@ const extractSass = new ExtractTextPlugin('[name].css');//导出sass*/
 module.exports = {
     devtool: "source map",
     entry: {
-        popup: './src/js/rate.js'
+        rate: './src/js/rate.js'
     },
     output: {
         filename: '[name].js',

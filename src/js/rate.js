@@ -10,6 +10,7 @@
  */
 import '../css/rate.scss';
 
+
 /**
  * @description 参数合理性判断
  * @param {array} config 已有参数
@@ -79,10 +80,10 @@ const rate = (option) =>{
                 showNode.setAttribute("data-rate",option.num);
                 showNode.setAttribute("style",`color:${option.color}`);
                 for (let i = 0;i<option.num;i++){
-                    showNode.innerHTML+= `<li>★</li>`;
+                    showNode.innerHTML+= `<li><i class="iconfont icon-star-f"></i></li>`;
                 }
                 for (let i = option.num;i<option.all;i++){
-                    showNode.innerHTML+= `<li>☆</li>`;
+                    showNode.innerHTML+= `<li><i class="iconfont icon-star"></i></li>`;
                 }
                 option.target.appendChild(showNode);
                 break;
@@ -99,10 +100,10 @@ const rate = (option) =>{
                 rateNode.setAttribute("data-rate",option.num);
                 rateNode.setAttribute("style",`color:${option.color}`);
                 for (let i = 0;i<option.num;i++){
-                    rateNode.innerHTML+= `<li data-id="${i}">★</li>`;
+                    rateNode.innerHTML+= `<li data-id="${i}"><i class="iconfont icon-star-f"></i></li>`;
                 }
                 for (let i = option.num;i<option.all;i++){
-                    rateNode.innerHTML+= `<li data-id="${i}">☆</li>`;
+                    rateNode.innerHTML+= `<li data-id="${i}"><i class="iconfont icon-star"></i></li>`;
                 }
                 option.target.appendChild(rateNode);
                 let list = option.target.querySelectorAll("ul.yu-rate li");
