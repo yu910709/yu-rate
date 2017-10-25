@@ -63,9 +63,3 @@
 
     字体：压缩
 
-### npm包说明
-
-* devDependencies 为开发的配置项
-
-* dependencies 为项目的配置项 现包括jquery(已在webpack全局挂载),font-awesome,lodash
-
