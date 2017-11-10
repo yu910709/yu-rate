@@ -1,3 +1,6 @@
+@charset "utf-8";
+@import '~normalize.css'; /*reset css*/
+
 #example{
   margin: 0 auto;
   width: 100%;
@@ -13,6 +16,29 @@
       padding: 15px;
       .title{
         margin: 0 0 10px;
+      }
+    }
+    .btn{
+      border-radius: 3px;
+      padding: 7px 12px;
+      box-shadow: none;
+      border: none;
+      color:white;
+      margin-bottom: 10px;
+      &.btn-block{
+        display: block;
+      }
+      &.btn-success{
+        background: darkseagreen;
+      }
+      &.btn-error{
+        background: indianred;
+      }
+      &.btn-loading{
+        background: cadetblue;
+      }
+      &.btn-default{
+        background: dimgrey;
       }
     }
     code{

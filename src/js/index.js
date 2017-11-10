@@ -1,5 +1,5 @@
 import '../css/app.scss';
-import rate from './rate';
+import rate from './plugin';
 
 document.getElementById('example').innerHTML = (`
     <h1>示例</h1>
@@ -18,10 +18,10 @@ document.querySelector('.example-show-sim').innerHTML = (`
     </section>
     <code>
      $('.example-show-sim .box div').text( <br>
-       rate({ <br>
-           type:'show-sim', <br>
-           num:3 <br>
-       }) <br>
+     &nbsp;&nbsp;rate({ <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;type:'show-sim', <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;num:3 <br>
+     &nbsp;&nbsp;}) <br>
    )
     </code>
 `);
@@ -44,15 +44,15 @@ document.querySelector('.example-show').innerHTML = (`
     </section>
     <code>
     rate({ <br>
-        type:'show', <br>
-        num:4, <br>
-        all:5, <br>
-        color:'#2dbbed', <br>
-        target:document.querySelector('.example-show .box div.show-one') <br>
+    &nbsp;&nbsp;type:'show', <br>
+    &nbsp;&nbsp;num:4, <br>
+    &nbsp;&nbsp;all:5, <br>
+    &nbsp;&nbsp;color:'#2dbbed', <br>
+    &nbsp;&nbsp;target:document.querySelector('.example-show .box div.show-one') <br>
     }); <br> <br>
     rate({ <br>
-        type:'show', <br>
-        target:document.querySelector('.example-show .box div.show-two') <br>
+    &nbsp;&nbsp;type:'show', <br>
+    &nbsp;&nbsp;target:document.querySelector('.example-show .box div.show-two') <br>
     })
     </code>
 `);
@@ -80,16 +80,16 @@ document.querySelector('.example-rate').innerHTML = (`
     </section>
     <code>
     rate({ <br>
-        type:'rate', <br>
-        num:4, <br>
-        all:5, <br>
-        target:document.querySelector('.example-rate .box div.rate-one') <br>
+    &nbsp;&nbsp;type:'rate', <br>
+    &nbsp;&nbsp;num:4, <br>
+    &nbsp;&nbsp;all:5, <br>
+    &nbsp;&nbsp;target:document.querySelector('.example-rate .box div.rate-one') <br>
     }); <br> <br>
     rate({ <br>
-        type:'rate', <br>
-        num:3, <br>
-        all:5, <br>
-        target:document.querySelector('.example-rate .box div.rate-two') <br>
+    &nbsp;&nbsp;type:'rate', <br>
+    &nbsp;&nbsp;num:3, <br>
+    &nbsp;&nbsp;all:5, <br>
+    &nbsp;&nbsp;target:document.querySelector('.example-rate .box div.rate-two') <br>
     })
     </code>
 `);
@@ -117,12 +117,12 @@ document.querySelector('.example-callback').innerHTML = (`
     </section>
     <code>
    rate({ <br>
-        type:'rate', <br>
-        num:4, <br>
-        target:document.querySelector('.example-callback .box div'), <br>
-        callback(){ <br>
-           alert(\`回调函数：您点击了$\{document.querySelector('.example-callback .yu-rate').dataset.rate}颗星\`) <br>
-        }
+   &nbsp;&nbsp;type:'rate', <br>
+   &nbsp;&nbsp;num:4, <br>
+   &nbsp;&nbsp;target:document.querySelector('.example-callback .box div'), <br>
+   &nbsp;&nbsp;callback(){ <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;alert(\`回调函数：您点击了$\{document.querySelector('.example-callback .yu-rate').dataset.rate}颗星\`) <br>
+   &nbsp;&nbsp;}
     });
     </code>
 `);
@@ -142,21 +142,19 @@ $(document).ready(function () {
 document.querySelector('.example-auto').innerHTML = (`
     <section class="box">
         <h5 class="title">自动根据.rate-auto添加评星,根据data-disable的值决定是否可以点击</h5>
-        <div class="rate-auto" data-num="0" disabled="disabled"></div>
-        <div class="rate-auto" data-num="1" disabled="disabled"></div>
+        <div class="rate-auto" data-all="6" data-num="0" disabled="disabled"></div>
+        <div class="rate-auto" data-all="6" data-num="1" disabled="disabled"></div>
         <p>bug:disable和able的div不能紧邻在一起</p>
-        <div class="rate-auto" data-num="2"></div>
-        <div class="rate-auto" data-num="3"></div>
+        <div class="rate-auto" data-all="6" data-num="2"></div>
+        <div class="rate-auto" data-all="6" data-num="3"></div>
     </section>
     <code>
    rate({ <br>
-       all:6 <br>
+   &nbsp;&nbsp;all:6 <br>
    }); <br>
     </code>
 `);
 
 $(document).ready(function () {
-   rate({
-       all:6
-   });
+   rate();
 });

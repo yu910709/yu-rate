@@ -1,14 +1,14 @@
 /**
  * @description 评分插件
- * @param {object} option
- * @param {string} [option.type] show 显示用 rate 评分用
- * @param {string} [option.all] 分数总数 默认5
- * @param {number} [option.num] 分数 显示的时候的分数 评分的时候的默认分数 默认5
- * @param {object} [option.target] 目标DOM
- * @param {string} [option.color] 自定义color
- * @param {function} [option.callback] 回调函数
+ * @param {object[]} option
+ * @param {string} [option[].type] - show 显示用 rate 评分用
+ * @param {string} [option[].all] - 分数总数 默认5
+ * @param {number} [option[].num] - 分数 显示的时候的分数 评分的时候的默认分数 默认5
+ * @param {object} [option[].target] - 目标DOM
+ * @param {string} [option[].color] - 自定义color
+ * @param {callback} [option[].callback] - 回调函数
  */
-import '../css/rate.scss';
+import '../css/plugin.scss';
 
 
 /**
@@ -24,13 +24,8 @@ const isConfig = (config,option) => {
         userParams.add(i)
     }
     let difference = new Set([...userParams].filter(x => !allowParams.has(x)));//计算用户的参数和允许参数的差集
-    if(userParams.size - difference.size === 0){//没有有用的配置项
-        console.error(`useful configuration in param 'option' is none , Please fill in at least one useful configuration just like : '${Array.from(allowParams)}' -- yu-rate`);
-        return false;
-    }else{
-        if(difference.size>0){//有未定的参数键值对
-            console.warn(`'${Array.from(difference)}' are not allowed , param 'option' can only accept these configuration : '${Array.from(allowParams)}' -- yu-rate`)
-        }
+    if(difference.size>0){//有未定的参数键值对
+        console.warn(`'${Array.from(difference)}' are not allowed , param 'option' can only accept these configuration : '${Array.from(allowParams)}' -- yu-rate`)
     }
 };
 /**
@@ -52,7 +47,7 @@ const autoRate = (option) =>{
             color = (option.color)?option.color:color;
             callback = (option.callback)?option.callback:callback;
         }
-        rate({
+        YuRate({
             type,
             num,
             all,
@@ -61,7 +56,7 @@ const autoRate = (option) =>{
         })
     }
 };
-const rate = (option) =>{
+const YuRate = (option) =>{
     if(option){
         switch (option.type){
             case "show-sim":
@@ -69,7 +64,7 @@ const rate = (option) =>{
                 return "★★★★★☆☆☆☆☆".slice(5 - option.num, 10 - option.num);
             case "show":
                 //参数合理性判断
-                isConfig(['type','all','num','target','color','callback'],option);
+                isConfig(['type','all','num','target','color'],option);
                 //设定默认值
                 option.all = (option.all)?option.all:5;
                 option.num = (option.num||(option.num===0))?option.num:option.all;
@@ -111,7 +106,7 @@ const rate = (option) =>{
                     list[i].onclick = function(){
                         option.num = Number(this.dataset.id*1+1);
                         option.target.innerHTML='';
-                        rate(option);//重新渲染rate;
+                        YuRate(option);//重新渲染rate;
                         if(option.callback){
                             option.callback();
                         }
@@ -126,4 +121,4 @@ const rate = (option) =>{
     }
 };
 
-export default rate;
+export default YuRate;

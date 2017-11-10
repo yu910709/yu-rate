@@ -1,65 +1,59 @@
-# 这是一个简单的自用书写插件发布到npm用的包
+## Introduce  
 
-### 安装步骤
+rate plugin with star
 
-    1.请确保全局安装了 webpack npm
+## Quick to start:
 
-    2.下载克隆此工程
+install:     
+`npm install --save yu-rate `    
+import:  
+`import rate from 'yu-rate' `
 
-    3.npm install
+## Example
 
-    4.npm run dev (开发环境) npm run build (发布环境)
+>You can use `npm run dev` to check the example file in node package
+
+    1.render with text
+    document.getElementById('target-dom').innerText = rate({type:'show-sim', num:3})
     
-    * 请在lib目录下的脚本顶部加上 module.exports = 
-    （因为webpack打包出来的文件没有export，而是一个大的闭包。
-    又因为有图片字体等文件，插件比较丰富，所以需要webpack打包，期待更好的处理方法，
-    简单的纯脚本plugin可以参考我另一个脚手架：babel-cli-plugin）
+    2.show star of rate
+    rate({
+            type:'show',
+            num:1,
+            all:5,
+            color:'#2dbbed',
+            target:document.querySelector('.example')
+        });
+        
+    3.build the rate for click
+    rate({
+            type:'rate',
+            num:3,
+            all:5,
+            color:'yellow',
+            target:document.querySelector('.example'),
+            callback(){
+                console.log('you clicked the rate')
+            }
+        })
+        
+    4.auto render with class 'rate-auto' and 'data-*',can it be clicked depends on attribute 'disabled'
+    <div class="rate-auto" data-all="6" data-num="1" disabled="disabled"></div>
+    <div class="rate-auto" data-all="6" data-num="2""></div>
+        
+## JSDoc
 
-### 目录结构
+ * @param {object[]} option
+ * @param {string} [option[].type] - type of rate,accept 'show-sim'(show rate with text,in this case other param should only be 'num') 'show'(show rate only,in this case other param shouldn't have 'callback') 'rate'(rate with click)
+ * @param {string} [option[].all = 5] - all score
+ * @param {number} [option[].num = 5] -  show how many score
+ * @param {object} [option[].target] - target dom to render
+ * @param {string} [option[].color] - set the color of star
+ * @param {callback} [option[].callback] - the callback will be called when you chick the star of rate
 
-> `src 开发环境`
+## Links
 
->> css 里面app.scss用来做为example的样式,plugin.scss是plugin的样式
-
->> js 里面app.js用来做为example的脚本,plugin.js是plugin的脚本
-
->> ... 其他类如IMG等等文件夹
-
->> template.html 主模板/页面
-
-> `dist 发布环境 通常是演示文件`
-
->> ... 产出文件 index.html为主入口
-
-> `lib 发布NPM包 请在脚本最前面加上 module.exports = `
-
-> node_modules 模块包
-
-> .gitignore git 忽略文件
-
-> index.js npm官方入口,可以在package.json中配置
-
-> .babelrc babel配置文件
-
-> package.json 包信息
-
-> postcss.config.js postcss配置文件
-
-> webpack.config.js webpack配置文件
-
-> README.md 说明文档（本文件）
-
-### webpack 配置
-
-    总体：热加载(不含组件热加载),全局挂载,自动清理产出文件夹,区分处理开发和发布环境
-
-    html：html模板引擎,svg行内挂载
-
-    css: less sass 分离样式表 自动补全前缀hack 支持css4(与less sass 冲突 选择性使用)
-
-    js: 支持es6 typescript 代码分离 提取公共模块 丑化
-
-    图片：压缩 base64编码
-
-    字体：压缩
-
+##### github  
+see https://github.com/watanabeyu0709/yu-rate
+##### npm  
+see https://www.npmjs.com/package/yu-rate
