@@ -2,7 +2,7 @@
 
 rate plugin with star
 
-## Quick to start:
+## Quick to start
 
 install:     
 `npm install --save yu-rate `    
