@@ -1,22 +1,23 @@
-## Introduce  
-
+## Introduce
 rate plugin with star
 
 ## Quick to start
-
-install:     
-`npm install --save yu-rate `    
-import:  
-`import rate from 'yu-rate' `
+Using npm:
+```shell
+$ npm install --save yu-rate
+$ import rate from 'yu-rate'
+```
 
 ## Example
-
->You can use `npm run dev` to check the example file in node package
-
+You can use `npm run dev` to check the example file in node package
     1.render with text
+
+    ```js
     document.getElementById('target-dom').innerText = rate({type:'show-sim', num:3})
+    ```
     
     2.show star of rate
+    ```js
     rate({
             type:'show',
             num:1,
@@ -24,8 +25,9 @@ import:
             color:'#2dbbed',
             target:document.querySelector('.example')
         });
-        
+    ```
     3.build the rate for click
+    ```js
     rate({
             type:'rate',
             num:3,
@@ -36,11 +38,13 @@ import:
                 console.log('you clicked the rate')
             }
         })
-        
+    ```
     4.auto render with class 'rate-auto' and 'data-*',can it be clicked depends on attribute 'disabled'
+    ```html
     <div class="rate-auto" data-all="6" data-num="1" disabled="disabled"></div>
     <div class="rate-auto" data-all="6" data-num="2""></div>
-        
+    ```
+
 ## JSDoc
 
  * @param {object[]} option
@@ -53,7 +57,7 @@ import:
 
 ## Links
 
-##### github  
+##### github
 see https://github.com/watanabeyu0709/yu-rate
-##### npm  
+##### npm
 see https://www.npmjs.com/package/yu-rate
