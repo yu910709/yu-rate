@@ -25,6 +25,8 @@ const isConfig = (config,option) => {
     }
     let difference = new Set([...userParams].filter(x => !allowParams.has(x)));//计算用户的参数和允许参数的差集
     if(difference.size>0){//有未定的参数键值对
+        console.log(config)
+        console.log(option)
         console.warn(`'${Array.from(difference)}' are not allowed , param 'option' can only accept these configuration : '${Array.from(allowParams)}' -- yu-rate`)
     }
 };
@@ -64,7 +66,7 @@ const YuRate = (option) =>{
                 return "★★★★★☆☆☆☆☆".slice(5 - option.num, 10 - option.num);
             case "show":
                 //参数合理性判断
-                isConfig(['type','all','num','target','color'],option);
+                isConfig(['type','all','num','target','color','callback'],option);
                 //设定默认值
                 option.all = (option.all)?option.all:5;
                 option.num = (option.num||(option.num===0))?option.num:option.all;
@@ -81,6 +83,9 @@ const YuRate = (option) =>{
                     showNode.innerHTML+= `<li><i class="iconfont icon-star"></i></li>`;
                 }
                 option.target.appendChild(showNode);
+                if(option.callback){
+                    option.callback();
+                }
                 break;
             case "rate":
                 //参数合理性判断

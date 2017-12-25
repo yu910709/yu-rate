@@ -63,7 +63,7 @@ $(document).ready(function () {
         num:1,
         all:5,
         color:'#2dbbed',
-        target:document.querySelector('.example-show .box div.show-one')
+        target:document.querySelector('.example-show .box div.show-one'),
     });
     rate({
         type:'show',
